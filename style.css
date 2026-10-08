@@ -10,7 +10,14 @@
     bottom: 50px;
 }
 
-
+#hitboxDebug {
+    position: absolute;
+    border: 2px solid red;
+    background: rgba(255, 0, 0, 0.15);
+    pointer-events: none;
+    z-index: 999;
+    display: none;
+}
 
 body {
     margin: 0;
@@ -64,6 +71,7 @@ body {
     display: inline-block ;
     background-color: rgb(162, 199, 239);
     padding: 12px 25px;
+    z-index: 1001;
 
     font-size: 18px;
     font-weight: bold;

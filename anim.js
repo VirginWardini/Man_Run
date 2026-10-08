@@ -1,21 +1,25 @@
     const character = document.getElementById("character");
     const runman = document.getElementById("runman");
+    const hitboxDebug = document.getElementById("hitboxDebug");
     const gameOverPopup = document.getElementById("gameOverPopup");
     const restartButton = document.getElementById("restartButton");
     const jumpCounter = document.getElementById("jumpCounter");
-
+    const game = document.getElementById("game");
+    
+    let spriteOffset = 110; 
     let currentFrame = 0;
     let previousAnimation;
     let jumpHeight = 0;
     let isJumping = false;
     let goingUp = true;
-    let groundLevel = 150;
+    let groundLevel = (game.clientHeight * 0.36) - spriteOffset;
     let jumps = 0;  
     let gameOver = false;
     let flowerx = 0;
     let skyx = 0;
     let cloudx = 0;
     let groundx = 0;
+    
 
 
     const idleFrames = [
@@ -146,9 +150,9 @@
                 cloudx -=0.2;
                 groundx -=0.4;
 
-        game.style.backgroundPositionX = flowerx + "px",
+        game.style.backgroundPositionX = flowerx + "px,"
                                         + cloudx + "px",
-                                        + groundx + "px",
+                                        + groundx + "px,"
                                         +skyx + "px";}
 
 
@@ -179,10 +183,27 @@
                 // Get CURRENT positions
                 let characterBox = character.getBoundingClientRect();
                 let obstacleBox = newObstacle.getBoundingClientRect();
-                let characterLeft = characterBox.left + 200;
+                let characterLeft = characterBox.left + 210;
                 let characterRight = characterBox.right - 200;
                 let characterTop = characterBox.top + 150;
-                let characterBottom = characterBox.bottom - 150;
+                let characterBottom = characterBox.bottom - 115;
+
+                console.log({
+                    left: characterLeft,
+                    right: characterRight,
+                    top: characterTop,
+                    bottom: characterBottom,
+                    width: characterRight - characterLeft,
+                    height: characterBottom - characterTop
+                                    });
+
+                //hitbox debug
+                hitboxDebug.style.left = (characterLeft - game.getBoundingClientRect().left) + "px";
+                hitboxDebug.style.top = (characterTop - game.getBoundingClientRect().top) + "px";
+
+                hitboxDebug.style.width = (characterRight - characterLeft) + "px";
+                hitboxDebug.style.height = (characterBottom - characterTop) + "px";
+                //hitbox debug
 
                 if (obstacleBox.right < characterLeft && !counted) {
                     jumps++;
