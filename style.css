@@ -10,15 +10,7 @@
     bottom: 50px;
 }
 
-#game {
-    width: 100vw;
-    height: 100vh;
-    position: relative; 
-    background-image: url("Summer2.png");
-    background-repeat: repeat-x;
-    background-position: center;
-    background-size: 100% 100%;
-}
+
 
 body {
     margin: 0;
@@ -41,6 +33,7 @@ body {
 .obstacle {
     width: 80px;
     height: auto;
+    bottom : var(--ground-level);
 }
 
 
@@ -82,4 +75,15 @@ body {
 
     cursor: pointer;
     text-decoration: none;
+}
+
+#game {
+    width: 100vw;
+    height: 100vh;
+    position: relative; 
+    background-image: url("background/3.png"),url("background/4.png"), url("background/2.png"), url("background/1.png");
+    background-repeat: repeat-x;
+    background-position: center;
+    background-size: 100% 100%;
+    --ground-level: 36%;
 }

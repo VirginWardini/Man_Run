@@ -10,9 +10,12 @@
     let isJumping = false;
     let goingUp = true;
     let groundLevel = 150;
-    let backgroundX = 0;
     let jumps = 0;  
     let gameOver = false;
+    let flowerx = 0;
+    let skyx = 0;
+    let cloudx = 0;
+    let groundx = 0;
 
 
     const idleFrames = [
@@ -139,9 +142,14 @@
     setInterval(function () {
         if (  !gameOver &&
             (currentAnimation === runFrames || previousAnimation === runFrames))
-        {backgroundX -=1;
+                {flowerx -=0.8;
+                cloudx -=0.2;
+                groundx -=0.4;
 
-        game.style.backgroundPositionX = backgroundX + "px";}
+        game.style.backgroundPositionX = flowerx + "px",
+                                        + cloudx + "px",
+                                        + groundx + "px",
+                                        +skyx + "px";}
 
 
     }, 1);
