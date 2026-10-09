@@ -120,7 +120,7 @@
 
         if (isJumping) {
 
-                if (jumpHeight === 160) {
+                if (jumpHeight === 180) {
         goingUp = false;
     }
 
@@ -149,7 +149,7 @@
             (currentAnimation === runFrames || previousAnimation === runFrames))
                 {flowerx -=0.8;
                 cloudx -=0.2;
-                groundx -=0.4;
+                groundx -=0.6;
 
         game.style.backgroundPositionX = flowerx + "px,"
                                         + cloudx + "px,"
