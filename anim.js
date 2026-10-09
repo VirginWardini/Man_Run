@@ -19,7 +19,7 @@
     let skyx = 0;
     let cloudx = 0;
     let groundx = 0;
-
+    let scale = 1;
     
 
 
@@ -152,7 +152,7 @@
                 groundx -=0.4;
 
         game.style.backgroundPositionX = flowerx + "px,"
-                                        + cloudx + "px",
+                                        + cloudx + "px,"
                                         + groundx + "px,"
                                         +skyx + "px";}
 
@@ -184,10 +184,10 @@
                 // Get CURRENT positions
                 let characterBox = character.getBoundingClientRect();
                 let obstacleBox = newObstacle.getBoundingClientRect();
-                let characterLeft = characterBox.left + 210;
-                let characterRight = characterBox.right - 220;
-                let characterTop = characterBox.top + 150;
-                let characterBottom = characterBox.bottom - 125;
+                let characterLeft = characterBox.left + 210* scale;
+                let characterRight = characterBox.right - 220* scale;
+                let characterTop = characterBox.top + 150* scale;
+                let characterBottom = characterBox.bottom - 125* scale;
 
                 console.log({
                     left: characterLeft,
@@ -253,11 +253,12 @@ restartButton.addEventListener("click", function () {
 function resizeGame() {
     let scaleX = window.innerWidth / 1280;
     let scaleY = window.innerHeight / 720;
-    let scale = Math.min(scaleX, scaleY);
+    scale = Math.min(scaleX, scaleY);
     game.style.transform = `translate(-50%, -50%) scale(${scale})`;
 
-window.addEventListener("resize", resizeGame);
+
 }
+window.addEventListener("resize", resizeGame);
 resizeGame();
 
     
