@@ -4,6 +4,13 @@
     padding: 20px;
 }
 
+#gameContainer {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+
 #character {
     position: absolute;
     left: 5px;
@@ -16,7 +23,7 @@
     background: rgba(255, 0, 0, 0.15);
     pointer-events: none;
     z-index: 999;
-    /*display: none; /*remove this line to show the hitbox debug box*/
+    display: none; /*remove this line to show the hitbox debug box*/
 }
 
 body {
@@ -86,12 +93,21 @@ body {
 }
 
 #game {
-    width: 100vw;
-    height: 100vh;
+    width: 1280px;
+    height: 720px;
     position: relative; 
     background-image: url("background/3.png"),url("background/4.png"), url("background/2.png"), url("background/1.png");
     background-repeat: repeat-x;
     background-position: center;
     background-size: 100% 100%;
     --ground-level: 36%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform-origin: center center;
+    
+    overflow: hidden;
+
+
+
 }

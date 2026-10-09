@@ -19,6 +19,7 @@
     let skyx = 0;
     let cloudx = 0;
     let groundx = 0;
+
     
 
 
@@ -119,7 +120,7 @@
 
         if (isJumping) {
 
-                if (jumpHeight === 150) {
+                if (jumpHeight === 160) {
         goingUp = false;
     }
 
@@ -184,9 +185,9 @@
                 let characterBox = character.getBoundingClientRect();
                 let obstacleBox = newObstacle.getBoundingClientRect();
                 let characterLeft = characterBox.left + 210;
-                let characterRight = characterBox.right - 200;
+                let characterRight = characterBox.right - 220;
                 let characterTop = characterBox.top + 150;
-                let characterBottom = characterBox.bottom - 115;
+                let characterBottom = characterBox.bottom - 125;
 
                 console.log({
                     left: characterLeft,
@@ -231,7 +232,7 @@
 
     function spawnRandomObstacle() {
 
-        let randomTime = Math.random() * 5000 + 1000;
+        let randomTime = Math.random() * 3000 + 3000;
 
         setTimeout(function () {
 
@@ -249,3 +250,16 @@ restartButton.addEventListener("click", function () {
     location.reload();
 });
  
+function resizeGame() {
+    let scaleX = window.innerWidth / 1280;
+    let scaleY = window.innerHeight / 720;
+    let scale = Math.min(scaleX, scaleY);
+    game.style.transform = `translate(-50%, -50%) scale(${scale})`;
+
+window.addEventListener("resize", resizeGame);
+}
+resizeGame();
+
+    
+    
+    
